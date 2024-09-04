@@ -1,8 +1,6 @@
 import { test, expect, _baseTest } from '@playwright/test';
 
 
-test.describe('Daftar', () => {
-
     test.beforeEach(async ({ page }) => {
     await page.goto('https://web.1000startupdigital.id/authorization/registration/');
     });
@@ -24,9 +22,7 @@ test.describe('Daftar', () => {
             await page.getByText(domisili).click()
             await expect(page.getByPlaceholder('Pilih Domisili')).toHaveValue(domisili);
         }
-
-        // await page.getByText(jenis_kelamin).click()
-        // await expect(page.getByRole('button', { name: jenis_kelamin })).toBeVisible();
+        
         await page.getByPlaceholder('Alamat e-mail Anda').fill(email);
         await expect(page.getByPlaceholder('Alamat e-mail Anda')).toHaveValue(email);
         await page.getByPlaceholder('Kata sandi', { exact: true }).fill(sandi);
@@ -91,5 +87,82 @@ test.describe('Daftar', () => {
         await expect(page.getByRole('heading', { name: 'Kata Sandi & Konfirmasi Kata' })).toBeVisible();
         // await validasiDaftar(page);
     });
-
-});
+    
+    test('Syarat dan Ketentuan', async ({ page }) => {
+        const page1Promise = page.waitForEvent('popup');
+        await page.getByRole('link', { name: 'Syarat dan Ketentuan' }).click();
+        const page1 = await page1Promise;
+        await expect(page1.getByRole('heading', { name: 'Syarat & Ketentuan' })).toBeVisible();
+        await page1.getByRole('button', { name: 'A. PEMBUKAAN AKUN ANDA' }).click();
+        await expect(page1.getByLabel('A. PEMBUKAAN AKUN ANDA')).toBeVisible();
+        await page1.getByRole('button', { name: 'B. INFORMASI PRIBADI ANDA' }).click();
+        await expect(page1.getByLabel('B. INFORMASI PRIBADI ANDA')).toBeVisible();
+        await page1.getByRole('button', { name: 'C. AKSES TERHADAP PLATFORM' }).click();
+        await page1.getByLabel('C. AKSES TERHADAP PLATFORM').click();
+        await expect(page1.getByLabel('C. AKSES TERHADAP PLATFORM')).toBeVisible();
+        await page1.getByRole('button', { name: 'D. PENGGUNAAN YANG DILARANG' }).click();
+        await expect(page1.getByLabel('D. PENGGUNAAN YANG DILARANG')).toBeVisible();
+        await page1.getByRole('button', { name: 'E. HAK KEKAYAAN INTELEKTUAL' }).click();
+        await expect(page1.getByLabel('E. HAK KEKAYAAN INTELEKTUAL')).toBeVisible();
+        await page1.getByRole('button', { name: 'F. PENGUNGGAHAN KONTEN PADA' }).click();
+        await expect(page1.getByLabel('F. PENGUNGGAHAN KONTEN PADA')).toBeVisible();
+        await page1.getByRole('button', { name: 'G. LAYANAN INTERAKTIF' }).click();
+        await expect(page1.getByLabel('G. LAYANAN INTERAKTIF')).toBeVisible();
+        await page1.getByRole('button', { name: 'H. LAPORAN KEMUNGKINAN' }).click();
+        await expect(page1.getByLabel('H. LAPORAN KEMUNGKINAN')).toBeVisible();
+        await page1.getByRole('button', { name: 'I. TINDAKAN YANG KAMI ANGGAP' }).click();
+        await expect(page1.getByLabel('I. TINDAKAN YANG KAMI ANGGAP')).toBeVisible();
+        await page1.getByRole('button', { name: 'J. MEMBUAT LINK KE PLATFORM' }).click();
+        await expect(page1.getByLabel('J. MEMBUAT LINK KE PLATFORM')).toBeVisible();
+        await page1.getByRole('button', { name: 'K. LINK PIHAK KETIGA PADA' }).click();
+        await expect(page1.getByLabel('K. LINK PIHAK KETIGA PADA')).toBeVisible();
+        await page1.getByRole('button', { name: 'L. TANGGUNG JAWAB ANDA' }).click();
+        await expect(page1.getByLabel('L. TANGGUNG JAWAB ANDA')).toBeVisible();
+        await page1.getByRole('button', { name: 'M. BATASAN TANGGUNG JAWAB KAMI' }).click();
+        await expect(page1.getByLabel('M. BATASAN TANGGUNG JAWAB KAMI')).toBeVisible();
+        await page1.getByRole('button', { name: 'N. KEADAAN KAHAR (FORCE' }).click();
+        await expect(page1.getByLabel('N. KEADAAN KAHAR (FORCE')).toBeVisible();
+        await page1.getByRole('button', { name: 'O. HUKUM YANG BERLAKU' }).click();
+        await expect(page1.getByLabel('O. HUKUM YANG BERLAKU')).toBeVisible();
+        await page1.getByRole('button', { name: 'P. KETENTUAN LAINNYA' }).click();
+        await expect(page1.getByLabel('P. KETENTUAN LAINNYA')).toBeVisible();
+    });
+    
+    test('Kebijakan Privasi', async ({ page }) => {
+        const page1Promise = page.waitForEvent('popup');
+        await page.getByRole('link', { name: 'Kebijakan Privasi' }).click();
+        const page1 = await page1Promise;
+        await expect(page1.getByRole('heading', { name: 'Kebijakan Privasi' })).toBeVisible();
+        await page1.getByRole('button', { name: 'A. INFORMASI PRIBADI YANG' }).click();
+        await expect(page1.getByLabel('A. INFORMASI PRIBADI YANG')).toBeVisible();
+        await page1.getByRole('button', { name: 'B. PENGGUNAAN INFORMASI' }).click();
+        await expect(page1.getByLabel('B. PENGGUNAAN INFORMASI')).toBeVisible();
+        await page1.getByRole('button', { name: 'C. PENGUNGKAPAN INFORMASI' }).click();
+        await expect(page1.getByLabel('C. PENGUNGKAPAN INFORMASI')).toBeVisible();
+        await page1.getByRole('button', { name: 'D. PENGGUNAAN YANG DILARANG' }).click();
+        await expect(page1.getByLabel('D. PENGGUNAAN YANG DILARANG')).toBeVisible();
+        await page1.getByRole('button', { name: 'E. HAK KEKAYAAN INTELEKTUAL' }).click();
+        await expect(page1.getByLabel('E. HAK KEKAYAAN INTELEKTUAL')).toBeVisible();
+        await page1.getByRole('button', { name: 'F. PENGUNGGAHAN KONTEN PADA' }).click();
+        await expect(page1.getByLabel('F. PENGUNGGAHAN KONTEN PADA')).toBeVisible();
+        await page1.getByRole('button', { name: 'G. LAYANAN INTERAKTIF' }).click();
+        await expect(page1.getByLabel('G. LAYANAN INTERAKTIF')).toBeVisible();
+        await page1.getByRole('button', { name: 'H. LAPORAN KEMUNGKINAN' }).click();
+        await expect(page1.getByLabel('H. LAPORAN KEMUNGKINAN')).toBeVisible();
+        await page1.getByRole('button', { name: 'I. TINDAKAN YANG KAMI ANGGAP' }).click();
+        await expect(page1.getByLabel('I. TINDAKAN YANG KAMI ANGGAP')).toBeVisible();
+        await page1.getByRole('button', { name: 'J. MEMBUAT LINK KE PLATFORM' }).click();
+        await expect(page1.getByLabel('J. MEMBUAT LINK KE PLATFORM')).toBeVisible();
+        await page1.getByRole('button', { name: 'K. LINK PIHAK KETIGA PADA' }).click();
+        await expect(page1.getByLabel('K. LINK PIHAK KETIGA PADA')).toBeVisible();
+        await page1.getByRole('button', { name: 'L. TANGGUNG JAWAB ANDA' }).click();
+        await expect(page1.getByLabel('L. TANGGUNG JAWAB ANDA')).toBeVisible();
+        await page1.getByRole('button', { name: 'M. BATASAN TANGGUNG JAWAB KAMI' }).click();
+        await expect(page1.getByLabel('M. BATASAN TANGGUNG JAWAB KAMI')).toBeVisible();
+        await page1.getByRole('button', { name: 'N. KEADAAN KAHAR (FORCE' }).click();
+        await expect(page1.getByLabel('N. KEADAAN KAHAR (FORCE')).toBeVisible();
+        await page1.getByRole('button', { name: 'O. HUKUM YANG BERLAKU' }).click();
+        await expect(page1.getByLabel('O. HUKUM YANG BERLAKU')).toBeVisible();
+        await page1.getByRole('button', { name: 'P. KETENTUAN LAINNYA' }).click();
+        await expect(page1.getByLabel('P. KETENTUAN LAINNYA')).toBeVisible();
+    });
