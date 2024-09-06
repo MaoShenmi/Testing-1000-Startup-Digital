@@ -59,13 +59,13 @@ test('Dashboard Footer', async ({ page }) => {
     await page.getByRole('link', { name: 'Mentor' }).click();
     await page.getByRole('link', { name: 'Startup', exact: true }).click();
     await page.getByRole('link', { name: 'Penggerak' }).click();
-    await page.goto('https://1000startupdigital.id/startup/');
+    await page.goto('https://1000startupdigital.id');
     await page.getByRole('link', { name: 'Buku Saku Rintisan' }).click();
-    await page.goto('https://1000startupdigital.id/startup/');
+    await page.goto('https://1000startupdigital.id');
     await page.getByRole('link', { name: 'Sekolah Beta Kelas Daring' }).click();
-    await page.goto('https://1000startupdigital.id/startup/');
+    await page.goto('https://1000startupdigital.id');
     await page.locator('#menu-item-10224').getByRole('link', { name: 'Cakap Startup' }).click();
-    await page.goto('https://1000startupdigital.id/startup/');
+    await page.goto('https://1000startupdigital.id');
     await page.getByRole('link', { name: 'Komunitas' }).click();
     await page.getByRole('link', { name: 'Kalender' }).click();
     await page.getByRole('link', { name: 'FAQ' }).click();

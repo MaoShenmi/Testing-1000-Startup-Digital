@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "_ga",
+      "value": "GA1.2.822790082.1725608172",
+      "domain": ".1000startupdigital.id",
+      "path": "/",
+      "expires": 1760168627.54204,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.604785020.1725608172",
+      "domain": ".1000startupdigital.id",
+      "path": "/",
+      "expires": 1725695027,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat",
+      "value": "1",
+      "domain": ".1000startupdigital.id",
+      "path": "/",
+      "expires": 1725608687,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://web.1000startupdigital.id",
+      "localStorage": [
+        {
+          "name": "auth.strategy",
+          "value": "local"
+        }
+      ]
+    }
+  ]
+}

@@ -52,7 +52,7 @@ import { test, expect, _baseTest } from '@playwright/test';
     // }
 
     test('valid Daftar', async ({ page }) => {
-        await daftar(page, 'aac', 'Laki-laki', 'BALI', '1000validregis1@gmail.com', 'cobacoba', 'cobacoba');
+        await daftar(page, 'aac', 'Laki-laki', 'BALI', 'cobatestqa@gmail.com', 'cobatest', 'cobatest');
         await page.getByRole('button', { name: 'Daftar' }).click();
         await expect(page.locator('.v-overlay__scrim')).toBeVisible();
     });
@@ -91,7 +91,7 @@ import { test, expect, _baseTest } from '@playwright/test';
     test('Syarat dan Ketentuan', async ({ page }) => {
         const page1Promise = page.waitForEvent('popup');
         await page.getByRole('link', { name: 'Syarat dan Ketentuan' }).click();
-        const page1 = await page1Promise;
+        const page1 = await page1Promise; 
         await expect(page1.getByRole('heading', { name: 'Syarat & Ketentuan' })).toBeVisible();
         await page1.getByRole('button', { name: 'A. PEMBUKAAN AKUN ANDA' }).click();
         await expect(page1.getByLabel('A. PEMBUKAAN AKUN ANDA')).toBeVisible();
