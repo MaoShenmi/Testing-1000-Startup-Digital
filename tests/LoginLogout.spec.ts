@@ -46,7 +46,7 @@ test('Login Valid', async ({ page }) => {
     await page.getByRole('button', { name: 'Masuk', exact: true }).click();
     await page.context().storageState({ path: 'loginSession.json' });
     await expect(page.getByRole('heading', { name: 'Tahapan yang berlangsung saat' })).toBeVisible();
-});
+}); 
 
 test.use({ storageState: 'loginSession.json' });
 

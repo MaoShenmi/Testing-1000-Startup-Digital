@@ -5,17 +5,17 @@
       "value": "GA1.2.822790082.1725608172",
       "domain": ".1000startupdigital.id",
       "path": "/",
-      "expires": 1760168627.54204,
+      "expires": 1760581086.124814,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_gid",
-      "value": "GA1.2.604785020.1725608172",
+      "value": "GA1.2.1854723584.1726020740",
       "domain": ".1000startupdigital.id",
       "path": "/",
-      "expires": 1725695027,
+      "expires": 1726107486,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -25,7 +25,7 @@
       "value": "1",
       "domain": ".1000startupdigital.id",
       "path": "/",
-      "expires": 1725608687,
+      "expires": 1726021146,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"

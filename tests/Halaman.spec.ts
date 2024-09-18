@@ -34,7 +34,7 @@ test('Dashboard Header', async ({ page }) => {
     await page.locator('#menu-item-68').getByRole('link', { name: 'Workshop' }).click();
     await page.locator('#menu-item-68').hover();
     await page.locator('#menu-item-68').getByRole('link', { name: 'Hacksprint' }).click();
-    await page.locator('#menu-item-68').hover();
+    await page.locator('#menu-item-68').hover();  
     await page.locator('#menu-item-68').getByRole('link', { name: 'Bootcamp' }).click();
     await page.locator('#menu-item-68').hover();
     await page.locator('#menu-item-68').getByRole('link', { name: 'Hatch' }).click();
