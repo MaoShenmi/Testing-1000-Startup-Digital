@@ -11,7 +11,7 @@ async function readCsvData(filePath: string): Promise<Array<{ email: string; san
       .on('data', (data) => results.push(data))
       .on('end', () => resolve(results))
       .on('error',   
- (err) => reject(err)); // Handle potential errors
+ (err) => reject(err));
   });
 }
 
@@ -26,32 +26,30 @@ const login = async (page, credentials: { email: string; sandi: string }) => {
 
   test('Login csv', async ({ page }) => {
     const csvData = await readCsvData('data/data-login.csv');
-  
-    // perulangan
+    await page.goto('https://web.1000startupdigital.id/authorization/login');
+    
     for (const credentials of csvData) {
-        await page.goto('https://web.1000startupdigital.id/authorization/login');
         await login(page, credentials);
         await page.getByRole('button', { name: 'Masuk', exact: true }).click();
     
-        // validasi
-        if (credentials.email === 'cobatestqa@gmail.com' && credentials.sandi === 'cobatest'){
-            // Berhasil Login
-            await expect(page.getByRole('heading', { name: 'Tahapan yang berlangsung saat' })).toBeVisible();
-        }
-        else if (credentials.email === '' || credentials.sandi !== '') {
-          // email dan sandi null
+        if (credentials.email === '' || credentials.sandi === '') {
+          
           if (credentials.email === '') {
+            await page.screenshot({path: "emailnull.png"});
             await expect(page.getByText('Masukan email kamu terlebih dahulu')).toBeVisible();
           }
           else{
+            await page.screenshot({path: "passwordnull.png"});
             await expect(page.getByText('Kata sandi wajib diisi')).toBeVisible();
           }
         }
         else if (credentials.email && credentials.sandi) {
-          if (credentials.email === 'cobatestqa@gmail.com' && credentials.sandi !== 'cobatest') {
+          if (credentials.email === 'cobatestqa@gmail.com' && credentials.sandi === 'cobatest') {
+            await page.screenshot({path: "berhasil.png"});
             await expect(page.getByRole('heading', { name: 'Tahapan yang berlangsung saat' })).toBeVisible();
           }
           else if (credentials.email !== 'cobatestqa@gmail.com') {
+            await page.screenshot({path: "belumterdaftar.png"});
             await expect(page.getByText('Email kamu belum terdaftar,')).toBeVisible();
           }
         }       
